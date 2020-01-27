@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -14,6 +15,8 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(of = {"id"})
 public class SubjectHierarch implements Serializable {
+
+    @Id
     @Column(name = "ISUBJECT_HIERARCHID")
     private long id;
 

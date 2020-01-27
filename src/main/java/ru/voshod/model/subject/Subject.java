@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -12,6 +13,7 @@ import java.time.LocalDateTime;
 @Table(name = "subject")
 @EqualsAndHashCode(of = {"id"})
 public class Subject implements Serializable {
+    @Id
     @Column(name = "ISUBJECTID")
     private long id;
 
