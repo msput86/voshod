@@ -1,7 +1,7 @@
 
 spring:
   application:
-    name: reference
+    name: voshod-demo
   jackson:
     date-format: yyyy-MM-dd
   datasource:
