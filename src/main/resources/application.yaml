@@ -1,0 +1,39 @@
+
+spring:
+  application:
+    name: reference
+  jackson:
+    date-format: yyyy-MM-dd
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/voshoddb # 10.11.40.242
+    username: voshod
+    password: voshod
+    maxActive: 10
+    maxIdle: 5
+    removeAbandoned: true
+    hikari:
+      maximumPoolSize: 5
+
+  jpa:
+    hibernate:
+      ddl-auto: none # We use liquibase instead
+    open-in-view: false # To turn off warning during start up time; microservice is not meant to render any view
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true # https://github.com/pgjdbc/pgjdbc/issues/1102
+        format_sql: true
+        default_schema: rolesm
+    database: postgresql
+# TODO: move sensitive data to kubernetes secrets
+
+server:
+  port: 8080
+
+logging:
+  level:
+    ru.voshod.references.reference: DEBUG
+    io.swagger: ERROR

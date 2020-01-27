@@ -1,0 +1,17 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:9.6
+    restart: always
+    volumes:
+      - ./docker-postgresql-scripts:/docker-entrypoint-initdb.d
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: voshod
+      POSTGRES_USER: voshod
+      POSTGRES_MULTIPLE_DATABASES: voshod
+volumes:
+  pgdata:
+    driver: local
