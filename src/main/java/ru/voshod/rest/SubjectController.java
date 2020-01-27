@@ -1,4 +1,4 @@
-package ru.voshod.references.reference.controllers;
+package ru.voshod.rest;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

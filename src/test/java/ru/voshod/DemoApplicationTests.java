@@ -1,10 +1,10 @@
-package ru.voshod.references.reference;
+package ru.voshod;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ReferenceApplicationTests {
+class DemoApplicationTests {
 
     @Test
     void contextLoads() {
