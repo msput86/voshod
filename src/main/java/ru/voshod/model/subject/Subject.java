@@ -29,4 +29,15 @@ public class Subject implements Serializable {
     @Column(name = "ISERVERID")
     private long iserverid;
 
+    @Column(name = "ISUBJECT_LEVELID")
+    private long subjectLevelId;
+
+    @Column(name = "ISUBJECT_TYPEID")
+    private long subjectTypeId;
+
+    @Column(name = "IREFERENDUMID")
+    private long referendumId;
+
+
+
 }
