@@ -15,8 +15,8 @@ CREATE TABLE voshodsm.test
 CREATE TABLE voshodsm.subject_level
 (
     ISUBJECT_LEVELID	bigserial,
-    DTDATE_BEGIN	DATE,
-    DTDATE_END	DATE,
+    DTDATE_BEGIN	timestamp,
+    DTDATE_END	timestamp,
     VCSUBJECT_LEVEL_NAME	VARCHAR(250),
     ISUBJECT_TYPEID	bigint,
     ISERVERID	bigint,
@@ -28,9 +28,9 @@ CREATE TABLE voshodsm.subject_level
 --changeset mputov:voshod-3.2
 CREATE TABLE voshodsm.subject_level_hierarch
 (
-    ISUBJECT_LEVEL_HIERARCHID	bigserial,
-    DTDATE_BEGIN	DATE,
-    DTDATE_END	DATE,
+    ISUBJECT_LEVEL_HIERARCHID	bigserial not null,
+    DTDATE_BEGIN	timestamp,
+    DTDATE_END	timestamp,
     IUPPER_LEVELID	bigint,
     ILOWER_LEVELID	bigint,
     ISERVERID	bigint,
@@ -44,9 +44,9 @@ CREATE TABLE voshodsm.subject_level_hierarch
 CREATE TABLE voshodsm.subject_type
 (
     ISUBJECT_TYPEID		bigserial NOT NULL,
-    DTDATE_BEGIN	DATE,
-    DTDATE_END	DATE,
-    VCSUBJECT_TYPE_NAME	VARCHAR(250),
+    DTDATE_BEGIN	timestamp ,
+    DTDATE_END	timestamp ,
+    VCSUBJECT_TYPE_NAME	TEXT,
     ISERVERID	bigint,
     IIS_UNCHECKED	boolean,
     IIS_PROTECTED	boolean,
@@ -58,9 +58,9 @@ CREATE TABLE voshodsm.subject_type
 CREATE TABLE voshodsm.subject
 (
     ISUBJECTID  bigserial   NOT NULL,
-    DTDATE_BEGIN	DATE,
-    DTDATE_END	DATE,
-    VCSUBJECT_NAME	VARCHAR(250),
+    DTDATE_BEGIN	timestamp,
+    DTDATE_END	timestamp,
+    VCSUBJECT_NAME	text,
     ISUBJECT_LEVELID	bigint,
     ISUBJECT_TYPEID	bigint,
     ISERVERID	bigint,
@@ -70,7 +70,7 @@ CREATE TABLE voshodsm.subject
     ISUBJ_PARENTID	bigint,
     IIS_BASIC	boolean,
     IBASIC_WRITINGID	bigint,
-    VCCODE_SUBJ	VARCHAR(10),
+    VCCODE_SUBJ	text,
     CONSTRAINT pk_isubjectid PRIMARY KEY (ISUBJECTID)
 );
 
@@ -78,15 +78,14 @@ CREATE TABLE voshodsm.subject
 CREATE TABLE voshodsm.subject_hierarch
 (
     ISUBJECT_HIERARCHID	bigserial NOT NULL,
-    DTDATE_BEGIN	DATE,
-    DTDATE_END	DATE,
+    DTDATE_BEGIN	timestamp,
+    DTDATE_END	timestamp,
     ILOWER_SUBJECTID	bigint,
     IUPPER_SUBJECTID	bigint,
     ISERVERID	bigint,
     ISUBJECT_LEVEL_HIERARCHID	bigint,
     IIS_UNCHECKED	boolean,
     IIS_PROTECTED	boolean,
-
     CONSTRAINT pk_isubject_hierarchid PRIMARY KEY (isubject_hierarchid)
 );
 

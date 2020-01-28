@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class Subject implements Serializable {
     @Id
     @Column(name = "ISUBJECTID")
-    private long id;
+    private Long id;
 
     @Column(name = "DTDATE_BEGIN")
     private LocalDateTime dateBegin;
@@ -27,16 +27,34 @@ public class Subject implements Serializable {
     private String name;
 
     @Column(name = "ISERVERID")
-    private long iserverid;
+    private Long iserverid;
 
     @Column(name = "ISUBJECT_LEVELID")
-    private long subjectLevelId;
+    private Long subjectLevelId;
 
     @Column(name = "ISUBJECT_TYPEID")
-    private long subjectTypeId;
+    private Long subjectTypeId;
 
     @Column(name = "IREFERENDUMID")
-    private long referendumId;
+    private Long referendumId;
+
+    @Column(name = "IIS_UNCHECKED")
+    private boolean isUnchecked;
+
+    @Column(name = "IIS_PROTECTED")
+    private boolean isProtected;
+
+    @Column(name = "ISUBJ_PARENTID")
+    private Long subjParentId;
+
+    @Column(name = "IIS_BASIC")
+    private boolean isBasic;
+
+    @Column(name = "IBASIC_WRITINGID")
+    private Long basicWritingId;
+
+    @Column(name = "VCCODE_SUBJ")
+    private String codeSubj;
 
 
 
